@@ -34,7 +34,7 @@ class Main extends PluginBase
         $this->saveDefaultConfig();
         $this->getServer()->getPluginManager()->registerEvents(new EventListener(), $this);
         $this->aliasData = new Config($this->getDataFolder() . "aliases.json", Config::JSON);
-        $this->getServer()->getCommandMap()->register("burgeraliasmanager", new CommandAliasCommand($this, "commandalias", "Manage your personal command aliases!"));
+        $this->getServer()->getCommandMap()->register("burgeraliasmanager", new CommandAliasCommand($this, "commandalias", "Manage your personal command aliases!", null, ["cmdalias"]));
     }
 
     public function savePlayerAliasData(string $playerName, array $aliasData): void
