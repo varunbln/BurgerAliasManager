@@ -29,6 +29,7 @@ gameplay experience from a QOL point of view.
 - burgeraliasmanager.op: Allows a player to bypass the max alias limit. Given only to OP's by default.
 
 ## Future Updates:
+Feel free to open an issue and suggest any further ideas. PR's are also welcome.
 - [ ] Support for alias descriptions and argument autofilling(Someone pls PR this sounds like a pain to implement)  
-- [ ] Maybe support setting server-wide command alia to make this a more "All in One" plugin  
-Feel free to open an issue and suggest more :D
+- [ ] Maybe support setting server-wide command alia to make this a more "All in One" plugin   
+
