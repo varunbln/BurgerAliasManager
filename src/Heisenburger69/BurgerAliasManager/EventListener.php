@@ -42,9 +42,10 @@ class EventListener implements Listener
         if(($session = SessionManager::getSessionByPlayer($player)) === null) return;
         if(strpos($event->getMessage(), "/") === 0){
             $ogCommand = substr($event->getMessage(), 1);
-            if(($command = $session->getCommandByAlias($ogCommand)) === null) return;
+            $ogComm = explode(" ", $ogCommand);
+            if(($command = $session->getCommandByAlias(array_shift($ogComm))) === null) return;
             Timings::$playerCommandTimer->startTiming();
-            Server::getInstance()->dispatchCommand($player, $command);
+            Server::getInstance()->dispatchCommand($player, $command . " " . implode(" ", $ogComm));
             Timings::$playerCommandTimer->stopTiming();
             $event->setCancelled(true);
         }
