@@ -2,6 +2,7 @@
 
 namespace Heisenburger69\BurgerAliasManager\session;
 
+use Heisenburger69\BurgerAliasManager\Main;
 use pocketmine\Player;
 use pocketmine\Server;
 use function array_merge;
@@ -72,10 +73,10 @@ class SessionManager
     }
 
     /**
-     * @param AliasPlayer $getSessionByPlayer
+     * @param AliasPlayer $session
      */
-    private static function saveSession(AliasPlayer $getSessionByPlayer)
+    private static function saveSession(AliasPlayer $session)
     {
-
+        Main::getInstance()->savePlayerAliasData($session->getName(), $session->getAllAliases());
     }
 }

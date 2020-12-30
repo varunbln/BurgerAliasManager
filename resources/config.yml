@@ -1,0 +1,3 @@
+# These are the max number of command aliases a player can create
+# Set to -1 for unlimited.
+max-aliases: -1

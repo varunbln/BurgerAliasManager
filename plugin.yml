@@ -1,8 +1,9 @@
 ---
 name: BurgerAliasManager
-version: 0.0.1
+version: 1.0.0
 main: Heisenburger69\BurgerAliasManager\Main
 api: 3.0.0
 author: Heisenburger69
+about: "Allow players to register their own custom command aliases!"
 website: "https://github.com/Heisenburger69"
 ...

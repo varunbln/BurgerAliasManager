@@ -2,6 +2,7 @@
 
 namespace Heisenburger69\BurgerAliasManager\session;
 
+use Heisenburger69\BurgerAliasManager\utils\Utils;
 use pocketmine\command\Command;
 use pocketmine\Player;
 
@@ -31,11 +32,25 @@ class AliasPlayer
     }
 
     /**
+     * @return string
+     */
+    public function getName(): string
+    {
+        return $this->player->getName();
+    }
+
+    /**
      * @return array
      */
-    public function getAllAlias(): array
+    public function getAllAliases(): array
     {
         return $this->aliases;
+    }
+
+    public function getCommandByAlias(string $alias): ?string
+    {
+        if(isset($this->aliases[$alias])) return $this->aliases[$alias];
+        return null;
     }
 
     /**
@@ -50,6 +65,7 @@ class AliasPlayer
     {
         if(isset($this->aliases[$alias])) return false;
         $this->aliases[$alias] = $commandLine;
+        Utils::refreshAvailableCommands($this);
         return true;
     }
 
