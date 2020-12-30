@@ -40,6 +40,8 @@ class AliasPlayer
     }
 
     /**
+     * Returns all the command aliases created by the user.
+     *
      * @return array
      */
     public function getAllAliases(): array
@@ -47,6 +49,23 @@ class AliasPlayer
         return $this->aliases;
     }
 
+    /**
+     * Returns the number of command aliases created by the user.
+     *
+     * @return int
+     */
+    public function getAliasCount(): int
+    {
+        return count($this->aliases);
+    }
+
+    /**
+     * Gets the actual command set by the user for the given alias
+     * Returns null if alias wasn't set to a command.
+     *
+     * @param string $alias
+     * @return string|null
+     */
     public function getCommandByAlias(string $alias): ?string
     {
         if(isset($this->aliases[$alias])) return $this->aliases[$alias];
@@ -80,6 +99,7 @@ class AliasPlayer
     {
         if(!isset($this->aliases[$alias])) return false;
         unset($this->aliases[$alias]);
+        Utils::refreshAvailableCommands($this);
         return true;
     }
 
@@ -94,5 +114,16 @@ class AliasPlayer
     public function getAliasList(int $page = 0, int $countPerPage = 10): array
     {
         return array_slice($this->aliases, $page * $countPerPage, 10);
+    }
+
+    /**
+     * Returns the max number of pages that can be populated based on the
+     * command aliases created by the player
+     *
+     * @return int
+     */
+    public function getMaxPages(): int
+    {
+        return (floor(count($this->aliases)/ 10) + 1);
     }
 }

@@ -1,3 +1,4 @@
 # These are the max number of command aliases a player can create
+# Players with the burgeraliasmanager.op permission can create unlimited aliases.
 # Set to -1 for unlimited.
 max-aliases: -1
